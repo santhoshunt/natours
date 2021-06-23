@@ -1,0 +1,97 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(#000, 0.1);
+  background-color: rgba(#fff, 0.6);
+  border-radius: 0.3rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $def-font;
+  transform: skewX(12deg);
+  backface-visibility: hidden;
+
+  @include respond(tab-port) {
+    padding: 2rem;
+    transform: skewX(0deg);
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  &__shape {
+    overflow: hidden;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    background-color: white;
+    shape-outside: circle(
+      50% at 50% 50%
+    ); // the element has to be floated and the height and width must be defined
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(-12deg);
+    position: relative;
+    backface-visibility: hidden;
+
+    @include respond(tab-port) {
+      display: block;
+      margin: 0 auto;
+      shape-outside: none;
+      transform: translateX(0rem) skewX(0deg);
+      float: none;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    transition: all 0.7s ease-in-out;
+    backface-visibility: hidden;
+
+    @include respond(tab-port) {
+      transform: skewX(0deg);
+    }
+  }
+
+  &__text {
+    transform: skewX(-12deg);
+
+    @include respond(tab-port) {
+      display: block;
+      transform: skewX(0deg);
+    }
+    .heading-tertiary {
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: scale(1);
+    filter: blur(0.3rem) brightness(50%);
+  }
+}

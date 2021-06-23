@@ -1,0 +1,34 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($light_green, 0.8),
+      rgba($dark_green, 0.8)
+    ),
+    url("../img/hero.jfif");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__text-box {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+
+svg {
+  animation: move_in_left 0.7s ease-in-out;
+}

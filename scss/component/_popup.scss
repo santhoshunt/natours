@@ -1,0 +1,109 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(black, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    background-color: white;
+    color: #777;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+    border-radius: 0.5rem;
+    display: table;
+    overflow: hidden;
+    transition: all 0.5s 0.2s;
+  }
+
+  &__left {
+    width: 33.33%;
+    display: table-cell;
+    vertical-align: middle;
+
+    @include respond(phone) {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__right {
+    padding: 3rem 5rem;
+    width: 66.67%;
+    display: table-cell;
+    vertical-align: middle;
+
+    @include respond(phone) {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+
+    @include respond(phone) {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 0.1rem solid #777;
+
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 0.1rem solid #777;
+
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    text-align: center;
+    &:link,
+    &:visited {
+      background-color: white;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 4rem;
+      font-size: 4rem;
+      text-decoration: none;
+      color: black;
+      position: absolute;
+      top: 2rem;
+      line-height: 1;
+      right: 2rem;
+    }
+
+    &:hover {
+      color: $light_green;
+    }
+  }
+}
