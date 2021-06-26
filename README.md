@@ -1,1 +1,1 @@
-# A Product lading page for a tour company
+# A mockup product landing page built only using css/scss
